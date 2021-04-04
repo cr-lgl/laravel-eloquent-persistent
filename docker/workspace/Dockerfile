@@ -21,6 +21,8 @@ RUN set -xe; \
         xdebug-3.0.3 && \
     docker-php-ext-install \
         zip \
+        pdo \
+        pdo_mysql \
         intl && \
     docker-php-ext-enable \
         xdebug && \

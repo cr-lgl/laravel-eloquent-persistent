@@ -17,3 +17,15 @@ services:
       - ${APP_PATH}:/var/www/html
     networks:
       - backend
+
+  mariadb:
+    build:
+      context: ./mariadb
+      dockerfile: ./Dockerfile
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=laravel
+    volumes:
+      - ${APP_DATA_PATH}/mariadb/var/lib/mysql:/var/lib/mysql:delegated
+    networks:
+      - backend
